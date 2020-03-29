@@ -1,10 +1,40 @@
 package com.example.appmainserver.bean;
 
+import java.sql.Blob;
+
 public class User {
     private String userName;
     private String userPassword;
     private String userSex;
     private String userType;
+    private String userCount;
+    private String msg;
+    private String userMoney;
+    private String userHead;
+
+    public void setUserHead(String userHead) {
+        this.userHead = userHead;
+    }
+
+    public String getUserHead() {
+        return userHead;
+    }
+
+    public void setUserMoney(String userMoney) {
+        this.userMoney = userMoney;
+    }
+
+    public String getUserMoney() {
+        return userMoney;
+    }
+
+    public void setUserCount(String userCount) {
+        this.userCount = userCount;
+    }
+
+    public String getUserCount() {
+        return userCount;
+    }
 
     public void setMsg(String msg) {
         this.msg = msg;
@@ -13,9 +43,6 @@ public class User {
     public String getMsg() {
         return msg;
     }
-
-    private String msg;
-
 
     public void setUserName(String userName) {
         this.userName = userName;

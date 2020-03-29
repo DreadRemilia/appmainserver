@@ -17,8 +17,8 @@ import java.io.InputStreamReader;
 import com.alibaba.*;
 
 @RestController
-@RequestMapping(value = "/fa")
-public class Collector {
+@RequestMapping(value = "/user")
+public class UserCollector {
     @Autowired
     private UserService userService;
 
@@ -63,6 +63,18 @@ public class Collector {
         else {
             requestJsonlogin.put("msg","用户名或密码错误");
         }
+        System.out.println(requestJsonlogin);
         return requestJsonlogin;
+    }
+
+    @RequestMapping(value = "/type")
+    public JSONObject selectType(HttpServletRequest request) throws Exception{
+        JsonReceive jsonReceive = new JsonReceive();
+        JSONObject requestJsonType = jsonReceive.jsonreceive(request);
+        String userName = requestJsonType.getString("userName");
+        userService.selectType(userName);
+        requestJsonType.put("userType",userService.selectType(userName));
+        System.out.println(userService.selectType(userName));
+        return requestJsonType;
     }
 }
